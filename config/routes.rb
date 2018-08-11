@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Participation resource:
+  # CREATE
+  get "/participations/new", :controller => "participations", :action => "new"
+  post "/create_participation", :controller => "participations", :action => "create"
+
+  # READ
+  get "/participations", :controller => "participations", :action => "index"
+  get "/participations/:id", :controller => "participations", :action => "show"
+
+  # UPDATE
+  get "/participations/:id/edit", :controller => "participations", :action => "edit"
+  post "/update_participation/:id", :controller => "participations", :action => "update"
+
+  # DELETE
+  get "/delete_participation/:id", :controller => "participations", :action => "destroy"
+  #------------------------------
+
   # Routes for the Requirement resource:
   # CREATE
   get "/requirements/new", :controller => "requirements", :action => "new"

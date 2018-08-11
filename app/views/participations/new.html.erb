@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @participation.errors.any? %>
+  <% @participation.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Participation</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_participation" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for employee_id -->
+      <div class="form-group">
+        <label for="employee_id" class="control-label">
+          Employee
+        </label>
+
+        <input type="text" id="employee_id" name="employee_id" placeholder="Employee" class="form-control" value="<%= @participation.employee_id %>">
+      </div>
+
+      <!-- Label and input for elearning_id -->
+      <div class="form-group">
+        <label for="elearning_id" class="control-label">
+          Elearning
+        </label>
+
+        <input type="text" id="elearning_id" name="elearning_id" placeholder="Elearning" class="form-control" value="<%= @participation.elearning_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Participation
+      </button>
+      or
+      <a href="/participations">Cancel</a>
+    </form>
+  </div>
+</div>
