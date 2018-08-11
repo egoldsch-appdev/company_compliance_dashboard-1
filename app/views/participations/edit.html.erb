@@ -33,7 +33,7 @@
           Elearning
         </label>
 
-        <input type="text" id="elearning_id" name="elearning_id" placeholder="Elearning" class="form-control" value="<%= @participation.elearning_id %>">
+        <%= select_tag(:elearning_id, options_from_collection_for_select(Elearning.all, :id, :title, @participation.elearning_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
