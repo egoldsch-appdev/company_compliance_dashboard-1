@@ -96,7 +96,7 @@
           Department
         </label>
 
-        <input type="text" id="department_id" name="department_id" placeholder="Department" class="form-control" value="<%= @employee.department_id %>">
+        <%= select_tag(:department_id, options_from_collection_for_select(Department.all, :id, :name, @employee.department_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
