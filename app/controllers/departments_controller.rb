@@ -6,6 +6,8 @@ class DepartmentsController < ApplicationController
   end
 
   def show
+    @requirement = Requirement.new
+    @employee = Employee.new
     @department = Department.find(params[:id])
 
     render("departments/show.html.erb")

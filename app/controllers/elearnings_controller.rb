@@ -6,6 +6,8 @@ class ElearningsController < ApplicationController
   end
 
   def show
+    @requirement = Requirement.new
+    @participation = Participation.new
     @elearning = Elearning.find(params[:id])
 
     render("elearnings/show.html.erb")

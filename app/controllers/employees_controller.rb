@@ -6,6 +6,8 @@ class EmployeesController < ApplicationController
   end
 
   def show
+    @participation = Participation.new
+    @requirement = Requirement.new
     @employee = Employee.find(params[:id])
 
     render("employees/show.html.erb")

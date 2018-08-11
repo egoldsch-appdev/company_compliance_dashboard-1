@@ -54,6 +54,92 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_employee" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for mcm_userid -->
+      <div class="form-group">
+        <label for="mcm_userid" class="control-label">
+          Mcm userid
+        </label>
+
+        <input type="text" id="mcm_userid" name="mcm_userid" placeholder="Mcm userid" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for first_name -->
+      <div class="form-group">
+        <label for="first_name" class="control-label">
+          First name
+        </label>
+
+        <input type="text" id="first_name" name="first_name" placeholder="First name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for last_name -->
+      <div class="form-group">
+        <label for="last_name" class="control-label">
+          Last name
+        </label>
+
+        <input type="text" id="last_name" name="last_name" placeholder="Last name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for doh -->
+      <div class="form-group">
+        <label for="doh" class="control-label">
+          Doh
+        </label>
+
+        <input type="text" id="doh" name="doh" placeholder="Doh" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for branch -->
+      <div class="form-group">
+        <label for="branch" class="control-label">
+          Branch
+        </label>
+
+        <input type="text" id="branch" name="branch" placeholder="Branch" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for dept_start_date -->
+      <div class="form-group">
+        <label for="dept_start_date" class="control-label">
+          Dept start date
+        </label>
+
+        <input type="text" id="dept_start_date" name="dept_start_date" placeholder="Dept start date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for prev_dept_id -->
+      <div class="form-group">
+        <label for="prev_dept_id" class="control-label">
+          Prev dept
+        </label>
+
+        <input type="text" id="prev_dept_id" name="prev_dept_id" placeholder="Prev dept" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for prev_dept_start_date -->
+      <div class="form-group">
+        <label for="prev_dept_start_date" class="control-label">
+          Prev dept start date
+        </label>
+
+        <input type="text" id="prev_dept_start_date" name="prev_dept_start_date" placeholder="Prev dept start date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for department_id -->
+      <input type="hidden" name="department_id" value="<%= @department.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Employee
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -85,6 +171,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_requirement" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for employee_id -->
+      <div class="form-group">
+        <label for="employee_id" class="control-label">
+          Employee
+        </label>
+
+        <%= select_tag(:employee_id, options_from_collection_for_select(Employee.all, :id, :mcm_userid), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for department_id -->
+      <input type="hidden" name="department_id" value="<%= @department.id %>">
+
+      <!-- Label and input for elearning_id -->
+      <div class="form-group">
+        <label for="elearning_id" class="control-label">
+          Elearning
+        </label>
+
+        <%= select_tag(:elearning_id, options_from_collection_for_select(Elearning.all, :id, :title), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Requirement
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

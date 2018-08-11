@@ -60,6 +60,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_participation" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for employee_id -->
+      <div class="form-group">
+        <label for="employee_id" class="control-label">
+          Employee
+        </label>
+
+        <%= select_tag(:employee_id, options_from_collection_for_select(Employee.all, :id, :mcm_userid), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for elearning_id -->
+      <input type="hidden" name="elearning_id" value="<%= @elearning.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Participation
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -91,6 +114,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_requirement" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for employee_id -->
+      <div class="form-group">
+        <label for="employee_id" class="control-label">
+          Employee
+        </label>
+
+        <%= select_tag(:employee_id, options_from_collection_for_select(Employee.all, :id, :mcm_userid), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for department_id -->
+      <div class="form-group">
+        <label for="department_id" class="control-label">
+          Department
+        </label>
+
+        <%= select_tag(:department_id, options_from_collection_for_select(Department.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for elearning_id -->
+      <input type="hidden" name="elearning_id" value="<%= @elearning.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Requirement
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
