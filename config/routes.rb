@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "employees#index"
   # Routes for the Participation resource:
   # CREATE
   get "/participations/new", :controller => "participations", :action => "new"
