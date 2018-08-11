@@ -16,8 +16,20 @@
 
       <% @participations.each do |participation| %>
       <tr>
-        <td><%= participation.employee.mcm_userid %></td>
-        <td><%= participation.elearning.title %></td>
+        <td>
+          <% if participation.employee.present? %>
+            <a href="/employees/<%= participation.employee.id %>">
+              <%= participation.employee.mcm_userid %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if participation.elearning.present? %>
+            <a href="/elearnings/<%= participation.elearning.id %>">
+              <%= participation.elearning.title %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/participations/<%= participation.id %>" class="btn btn-primary">Show</a>
           <a href="/participations/<%= participation.id %>/edit" class="btn btn-warning">Edit</a>

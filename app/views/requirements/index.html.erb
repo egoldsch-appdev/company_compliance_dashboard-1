@@ -17,9 +17,27 @@
 
       <% @requirements.each do |requirement| %>
       <tr>
-        <td><%= requirement.employee.mcm_userid %></td>
-        <td><%= requirement.department.name %></td>
-        <td><%= requirement.elearning.title %></td>
+        <td>
+          <% if requirement.employee.present? %>
+            <a href="/employees/<%= requirement.employee.id %>">
+              <%= requirement.employee.mcm_userid %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if requirement.department.present? %>
+            <a href="/departments/<%= requirement.department.id %>">
+              <%= requirement.department.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if requirement.elearning.present? %>
+            <a href="/elearnings/<%= requirement.elearning.id %>">
+              <%= requirement.elearning.title %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/requirements/<%= requirement.id %>" class="btn btn-primary">Show</a>
           <a href="/requirements/<%= requirement.id %>/edit" class="btn btn-warning">Edit</a>

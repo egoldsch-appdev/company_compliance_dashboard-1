@@ -30,7 +30,13 @@
       <dd><%= @employee.prev_dept_start_date %></dd>
 
       <dt>Department</dt>
-      <dd><%= @employee.department_id %></dd>
+      <dd>
+        <% if @employee.department.present? %>
+          <a href="/departments/<%= @employee.department_id %>">
+            <%= @employee.department.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

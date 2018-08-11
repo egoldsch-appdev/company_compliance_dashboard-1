@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Employee</dt>
-      <dd><%= @participation.employee_id %></dd>
+      <dd>
+        <% if @participation.employee.present? %>
+          <a href="/employees/<%= @participation.employee_id %>">
+            <%= @participation.employee.mcm_userid %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Elearning</dt>
-      <dd><%= @participation.elearning_id %></dd>
+      <dd>
+        <% if @participation.elearning.present? %>
+          <a href="/elearnings/<%= @participation.elearning_id %>">
+            <%= @participation.elearning.title %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
