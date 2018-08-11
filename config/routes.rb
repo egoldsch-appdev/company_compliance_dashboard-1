@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root :to => "employees#index"
   # Routes for the Participation resource:
   # CREATE
