@@ -1,6 +1,7 @@
 class ElearningsController < ApplicationController
   def index
-    @elearnings = Elearning.page(params[:page]).per(10)
+    @q = Elearning.ransack(params[:q])
+    @elearnings = @q.result(:distinct => true).includes(:participations, :requirements).page(params[:page]).per(10)
 
     render("elearnings/index.html.erb")
   end

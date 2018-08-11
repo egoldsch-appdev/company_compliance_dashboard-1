@@ -1,6 +1,7 @@
 class ParticipationsController < ApplicationController
   def index
-    @participations = Participation.page(params[:page]).per(10)
+    @q = Participation.ransack(params[:q])
+    @participations = @q.result(:distinct => true).includes(:employee, :elearning).page(params[:page]).per(10)
 
     render("participations/index.html.erb")
   end

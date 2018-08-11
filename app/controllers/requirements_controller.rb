@@ -1,6 +1,7 @@
 class RequirementsController < ApplicationController
   def index
-    @requirements = Requirement.page(params[:page]).per(10)
+    @q = Requirement.ransack(params[:q])
+    @requirements = @q.result(:distinct => true).includes(:employee, :department, :elearning).page(params[:page]).per(10)
 
     render("requirements/index.html.erb")
   end
