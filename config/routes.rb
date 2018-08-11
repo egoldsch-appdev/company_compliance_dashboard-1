@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Requirement resource:
+  # CREATE
+  get "/requirements/new", :controller => "requirements", :action => "new"
+  post "/create_requirement", :controller => "requirements", :action => "create"
+
+  # READ
+  get "/requirements", :controller => "requirements", :action => "index"
+  get "/requirements/:id", :controller => "requirements", :action => "show"
+
+  # UPDATE
+  get "/requirements/:id/edit", :controller => "requirements", :action => "edit"
+  post "/update_requirement/:id", :controller => "requirements", :action => "update"
+
+  # DELETE
+  get "/delete_requirement/:id", :controller => "requirements", :action => "destroy"
+  #------------------------------
+
   # Routes for the Elearning resource:
   # CREATE
   get "/elearnings/new", :controller => "elearnings", :action => "new"
