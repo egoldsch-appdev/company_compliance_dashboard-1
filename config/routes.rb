@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Elearning resource:
+  # CREATE
+  get "/elearnings/new", :controller => "elearnings", :action => "new"
+  post "/create_elearning", :controller => "elearnings", :action => "create"
+
+  # READ
+  get "/elearnings", :controller => "elearnings", :action => "index"
+  get "/elearnings/:id", :controller => "elearnings", :action => "show"
+
+  # UPDATE
+  get "/elearnings/:id/edit", :controller => "elearnings", :action => "edit"
+  post "/update_elearning/:id", :controller => "elearnings", :action => "update"
+
+  # DELETE
+  get "/delete_elearning/:id", :controller => "elearnings", :action => "destroy"
+  #------------------------------
+
   # Routes for the Department resource:
   # CREATE
   get "/departments/new", :controller => "departments", :action => "new"

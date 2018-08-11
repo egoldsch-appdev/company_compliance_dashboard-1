@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @elearning.errors.any? %>
+  <% @elearning.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Elearning</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_elearning" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @elearning.title %>">
+      </div>
+
+      <!-- Label and input for duration -->
+      <div class="form-group">
+        <label for="duration" class="control-label">
+          Duration
+        </label>
+
+        <input type="text" id="duration" name="duration" placeholder="Duration" class="form-control" value="<%= @elearning.duration %>">
+      </div>
+
+      <!-- Label and input for link -->
+      <div class="form-group">
+        <label for="link" class="control-label">
+          Link
+        </label>
+
+        <input type="text" id="link" name="link" placeholder="Link" class="form-control" value="<%= @elearning.link %>">
+      </div>
+
+      <!-- Label and input for due_date -->
+      <div class="form-group">
+        <label for="due_date" class="control-label">
+          Due date
+        </label>
+
+        <input type="text" id="due_date" name="due_date" placeholder="Due date" class="form-control" value="<%= @elearning.due_date %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Elearning
+      </button>
+      or
+      <a href="/elearnings">Cancel</a>
+    </form>
+  </div>
+</div>
