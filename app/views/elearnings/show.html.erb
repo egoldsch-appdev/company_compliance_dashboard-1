@@ -32,3 +32,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Elearning has many participations -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Participations
+      </li>
+
+      <% @elearning.participations.each do |participation| %>
+        <li class="list-group-item">
+          <a href="/participations/<%= participation.id %>">
+            <%= participation.employee_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/participations/<%= participation.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/participations/<%= participation.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_participation/<%= participation.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Elearning has many requirements -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Requirements
+      </li>
+
+      <% @elearning.requirements.each do |requirement| %>
+        <li class="list-group-item">
+          <a href="/requirements/<%= requirement.id %>">
+            <%= requirement.employee_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/requirements/<%= requirement.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/requirements/<%= requirement.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_requirement/<%= requirement.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
