@@ -1,6 +1,9 @@
 class Requirement < ApplicationRecord
   # Direct associations
 
+  belongs_to :elearning,
+             :counter_cache => true
+
   belongs_to :department,
              :counter_cache => true
 
