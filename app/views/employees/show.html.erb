@@ -1,0 +1,49 @@
+<div class="page-header">
+  <h3>Employee #<%= @employee.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Mcm userid</dt>
+      <dd><%= @employee.mcm_userid %></dd>
+
+      <dt>First name</dt>
+      <dd><%= @employee.first_name %></dd>
+
+      <dt>Last name</dt>
+      <dd><%= @employee.last_name %></dd>
+
+      <dt>Doh</dt>
+      <dd><%= @employee.doh %></dd>
+
+      <dt>Branch</dt>
+      <dd><%= @employee.branch %></dd>
+
+      <dt>Dept start date</dt>
+      <dd><%= @employee.dept_start_date %></dd>
+
+      <dt>Prev dept</dt>
+      <dd><%= @employee.prev_dept_id %></dd>
+
+      <dt>Prev dept start date</dt>
+      <dd><%= @employee.prev_dept_start_date %></dd>
+
+      <dt>Department</dt>
+      <dd><%= @employee.department_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/employees" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/employees/<%= @employee.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_employee/<%= @employee.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

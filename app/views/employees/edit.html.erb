@@ -1,0 +1,109 @@
+<!-- Validation failure messages -->
+<% if @employee.errors.any? %>
+  <% @employee.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Employee #<%= @employee.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_employee/<%= @employee.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for mcm_userid -->
+      <div class="form-group">
+        <label for="mcm_userid" class="control-label">
+          Mcm userid
+        </label>
+
+        <input type="text" id="mcm_userid" name="mcm_userid" placeholder="Mcm userid" class="form-control" value="<%= @employee.mcm_userid %>">
+      </div>
+
+      <!-- Label and input for first_name -->
+      <div class="form-group">
+        <label for="first_name" class="control-label">
+          First name
+        </label>
+
+        <input type="text" id="first_name" name="first_name" placeholder="First name" class="form-control" value="<%= @employee.first_name %>">
+      </div>
+
+      <!-- Label and input for last_name -->
+      <div class="form-group">
+        <label for="last_name" class="control-label">
+          Last name
+        </label>
+
+        <input type="text" id="last_name" name="last_name" placeholder="Last name" class="form-control" value="<%= @employee.last_name %>">
+      </div>
+
+      <!-- Label and input for doh -->
+      <div class="form-group">
+        <label for="doh" class="control-label">
+          Doh
+        </label>
+
+        <input type="text" id="doh" name="doh" placeholder="Doh" class="form-control" value="<%= @employee.doh %>">
+      </div>
+
+      <!-- Label and input for branch -->
+      <div class="form-group">
+        <label for="branch" class="control-label">
+          Branch
+        </label>
+
+        <input type="text" id="branch" name="branch" placeholder="Branch" class="form-control" value="<%= @employee.branch %>">
+      </div>
+
+      <!-- Label and input for dept_start_date -->
+      <div class="form-group">
+        <label for="dept_start_date" class="control-label">
+          Dept start date
+        </label>
+
+        <input type="text" id="dept_start_date" name="dept_start_date" placeholder="Dept start date" class="form-control" value="<%= @employee.dept_start_date %>">
+      </div>
+
+      <!-- Label and input for prev_dept_id -->
+      <div class="form-group">
+        <label for="prev_dept_id" class="control-label">
+          Prev dept
+        </label>
+
+        <input type="text" id="prev_dept_id" name="prev_dept_id" placeholder="Prev dept" class="form-control" value="<%= @employee.prev_dept_id %>">
+      </div>
+
+      <!-- Label and input for prev_dept_start_date -->
+      <div class="form-group">
+        <label for="prev_dept_start_date" class="control-label">
+          Prev dept start date
+        </label>
+
+        <input type="text" id="prev_dept_start_date" name="prev_dept_start_date" placeholder="Prev dept start date" class="form-control" value="<%= @employee.prev_dept_start_date %>">
+      </div>
+
+      <!-- Label and input for department_id -->
+      <div class="form-group">
+        <label for="department_id" class="control-label">
+          Department
+        </label>
+
+        <input type="text" id="department_id" name="department_id" placeholder="Department" class="form-control" value="<%= @employee.department_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Employee
+      </button>
+      or
+      <a href="/employees/<%= @employee.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
