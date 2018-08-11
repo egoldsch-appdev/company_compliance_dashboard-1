@@ -1,4 +1,6 @@
 ActiveAdmin.register Requirement do
+
+ permit_params :employee_id, :department_id, :elearning_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
