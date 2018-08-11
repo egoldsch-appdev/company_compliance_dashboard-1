@@ -31,7 +31,7 @@
         <td><%= employee.dept_start_date %></td>
         <td><%= employee.prev_dept_id %></td>
         <td><%= employee.prev_dept_start_date %></td>
-        <td><%= employee.department_id %></td>
+        <td><%= employee.department.name %></td>
         <td>
           <a href="/employees/<%= employee.id %>" class="btn btn-primary">Show</a>
           <a href="/employees/<%= employee.id %>/edit" class="btn btn-warning">Edit</a>
