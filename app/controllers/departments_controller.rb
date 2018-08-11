@@ -1,6 +1,6 @@
 class DepartmentsController < ApplicationController
   def index
-    @departments = Department.all
+    @departments = Department.page(params[:page]).per(10)
 
     render("departments/index.html.erb")
   end

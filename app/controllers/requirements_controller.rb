@@ -1,6 +1,6 @@
 class RequirementsController < ApplicationController
   def index
-    @requirements = Requirement.all
+    @requirements = Requirement.page(params[:page]).per(10)
 
     render("requirements/index.html.erb")
   end

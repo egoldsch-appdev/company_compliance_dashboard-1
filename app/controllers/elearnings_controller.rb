@@ -1,6 +1,6 @@
 class ElearningsController < ApplicationController
   def index
-    @elearnings = Elearning.all
+    @elearnings = Elearning.page(params[:page]).per(10)
 
     render("elearnings/index.html.erb")
   end
